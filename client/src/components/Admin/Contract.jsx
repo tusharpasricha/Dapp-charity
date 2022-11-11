@@ -1,6 +1,8 @@
 import { useRef, useEffect } from "react";
 import useEth from "../../contexts/EthContext/useEth";
 import { useState } from "react";
+import About from "./about";
+import Footer from "../User/footer";
 
 function Contract() {
   const spanEle = useRef(null);
@@ -88,49 +90,53 @@ function Contract() {
     await contract.methods.makePayment(newpaymentrequestValue).send({ from: accounts[0] });
   };
 
+
   return (
   <>
-      <span className="secondary-color" ref={spanEle}>
-        {/* <strong>{value}</strong> */}
-      </span>
-      <div className="btns">
-        {value}
-      <button onClick={getContractBalance}>
-      Contract Balance
-      </button>
+       <span className="secondary-color" ref={spanEle}>
+  {/* <strong>{value}</strong> */}
+</span>
+{/* <div className="btns">
+  {value}
+<button onClick={getContractBalance}>
+Contract Balance
+</button>
+</div> */}
+
+      <About/>
+      <div className="admin">
+      <div onClick={fmakeRequest} className="admin1">
+            <input
+                type="text"
+                placeholder="decription"
+                value={inputrequestDesc}
+                onChange={handleInputChangeDesc}
+              />
+              <input
+                type="text"
+                placeholder="address"
+                value={inputrequestAdd}
+                onChange={handleInputChangeAdd}
+              />
+            <input
+                type="text"
+                placeholder="uint"
+                value={inputrequestValue}
+                onChange={handleInputChange}
+              />Make Requests
       </div>
 
-      <div>
-      <div onClick={fmakeRequest} className="input-btn">
-      <input
-          type="text"
-          placeholder="decription"
-          value={inputrequestDesc}
-          onChange={handleInputChangeDesc}
-        />
-        <input
-          type="text"
-          placeholder="address"
-          value={inputrequestAdd}
-          onChange={handleInputChangeAdd}
-        />
-      <input
-          type="text"
-          placeholder="uint"
-          value={inputrequestValue}
-          onChange={handleInputChange}
-        />Make Requests
-      </div>
-      <div onClick={fmakePayment} className="input-btn">
-      <input
-          type="text"
-          placeholder="uint"
-          value={inputpaymentrequestValue}
-          onChange={handleInputChangePayment}
-        />Make Payment
+      <div onClick={fmakePayment} className="admin2">
+            <input
+                type="text"
+                placeholder="uint"
+                value={inputpaymentrequestValue}
+                onChange={handleInputChangePayment}
+              />Make Payment
       </div>
       
       </div>
+      <Footer/>
     </>
    
   );

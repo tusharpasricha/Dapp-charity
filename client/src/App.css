@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 #App {
   width: 100%;
   height: 100%;
@@ -12,6 +12,7 @@
   --gray: #999;
   --light-gray: #e0e0e0;
   --dark-gray: #777;
+  background-color: #F4DECB;
 }
 
 #App .container {
@@ -144,20 +145,121 @@ hr {
   margin: 2rem 1rem 0 0;
 }
 #App .about{
-  margin: 20px 20px 20px 20px;
-  padding: 20px 20px 20px 20px;
-  background-color: #f96400;
-  width: 50%;
+  
+  padding-top: 30px;
+  padding-left: 80px;
+  padding-right: 100px;
+ display: flex;
+ text-align: center;
+ justify-content: space-around;
+ height: 150px;
+ color: black;
+ font-family: 'Poppins', sans-serif;
+  background-color: #94618E;
+}
+#App .about .title{
+  color: white;
+  font-size: 22px;
+  padding-top: -100px;
+}
+#App .refbtn{
+  height: 50%;
 }
 #App .home{
-  margin: 20px 20px 20px 20px;
-  padding: 20px 20px 20px 20px;
-  background-color: #b86934;
-  width: 100%;
-  height: 800px;
+  font-family: 'Poppins', sans-serif;
+  
+  /* margin: 20px 20px 20px 20px; */
+  
+  font-size: 25px;
+  
+  background-color: white;
+  background-color: #F4DECB;
+  /* width: 100%; */
+  height: 1500px;
   display: flex;
   flex-direction: column;
 }
+#App .home .home1{
+  background-color: #94618E;
+  background-color: white;
+  height: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  color: #49274A;
+}
+#App .home .home1 .home1text{
+  padding-top: 180px;
+}
+
+#App .home .home2{
+  margin-top: 2px;
+  background-color: #94618E;
+  height: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  
+}
+#App .home .home3{
+ 
+  margin-top: 2px;
+  background-color: #94618E;
+  height: 33%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+#App .home .home3 .refundbtn{
+  width: 20%;
+  text-align: center;
+  margin-left: 610px;
+  background-color: transparent;
+  text-decoration: none;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  cursor: pointer;
+}
 #App .home .input-btn{
   margin-top: 100px;
+  cursor: pointer;
+}
+
+#App .home input{
+  height: 30px;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+#App .demo .footer{
+  background-color: #49274A;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+#App .demo .title{
+  font-family: 'Poppins', sans-serif;
+  padding-left: 10px;
+}
+#App .admin{
+  color: #49274A;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 200px;
+}
+#App .admin input{
+  height: 30px;
+  margin-right: 10px;
+  font-size: 20px;
 }

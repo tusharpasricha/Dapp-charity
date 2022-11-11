@@ -1,13 +1,13 @@
 import useEth from "../../contexts/EthContext/useEth";
-import Title from "./Title";
+
 
 import Contract from "./Contract";
-import ContractBtns from "./ContractBtns";
 
-import NoticeNoArtifact from "./NoticeNoArtifact";
-import NoticeWrongNetwork from "./NoticeWrongNetwork";
+import NoticeNoArtifact from "../User/NoticeNoArtifact";
+ import NoticeWrongNetwork from "../User/NoticeWrongNetwork";
+import Footer from "./footer";
 
-function Demo() {
+function Admin() {
   const { state } = useEth();
   // const [value, setValue] = useState("?");
 
@@ -15,22 +15,24 @@ function Demo() {
     <>
       
       <div className="contract-container">
-        <Contract  />
-        <ContractBtns/>
+        
+        <Contract/>
       </div>
       
     </>;
 
   return (
     <div className="demo">
-      <Title />
+      {/* <Title /> */}
       {
         !state.artifact ? <NoticeNoArtifact /> :
           !state.contract ? <NoticeWrongNetwork /> :
             demo
       }
+  
     </div>
+    
   );
 }
 
-export default Demo;
+export default Admin;

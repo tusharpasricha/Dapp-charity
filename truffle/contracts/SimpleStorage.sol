@@ -27,15 +27,15 @@ contract charity{
         manager=msg.sender;
     }
     
-    function sendEth() public payable{
+    function sendEth(uint val) public payable{
         require(block.timestamp < deadline,"Deadline has passed");
-        require(msg.value >=minimumContribution,"Minimum Contribution is not met");
+        require(val >=minimumContribution,"Minimum Contribution is not met");
         
         if(contributors[msg.sender]==0){
             noOfContributors++;
         }
-        contributors[msg.sender]+=msg.value;
-        raisedAmount+=msg.value;
+        contributors[msg.sender]+=val;
+        raisedAmount+=val;
     }
     function getContractBalance() public view returns(uint){
         return address(this).balance;

@@ -1,13 +1,33 @@
 import { EthProvider } from "./contexts/EthContext";
-import Demo from "./components/Demo";
+import User from "./components/User";
+import Admin from "./components/Admin"
 import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom" ;
 
 function App() {
   return (
     <EthProvider>
       <div id="App" >
         <div className="container">
-          <Demo />
+
+
+        <Router>
+         
+        <Routes>
+          {/* <Route path="/admin"><Admin /></Route>
+          <Route path="/user"><Demo /></Route> */}
+          <Route exact path="/admin" element={<Admin/>}/>
+          <Route exact path="/user" element={<User/>}/>
+        </Routes>
+        
+        </Router>
+        
+          
         </div>
       </div>
     </EthProvider>
