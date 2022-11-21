@@ -24,12 +24,6 @@ function Contract() {
     };
   }, [value]);
 
-  const getContractBalance = async () => {
-    console.log(contract.methods)
-    const value = await contract.methods.getContractBalance().call({ from: accounts[0] });
-    setValue(value);
-    console.log(value)
-  };
   const handleInputChange = e => {
     if (/^\d+$|^$/.test(e.target.value)) {
       setInputrequestValue(e.target.value);
@@ -94,21 +88,13 @@ function Contract() {
   return (
   <>
        <span className="secondary-color" ref={spanEle}>
-  {/* <strong>{value}</strong> */}
-</span>
-{/* <div className="btns">
-  {value}
-<button onClick={getContractBalance}>
-Contract Balance
-</button>
-</div> */}
-
+      </span>
       <About/>
       <div className="admin">
       <div onClick={fmakeRequest} className="admin1">
             <input
                 type="text"
-                placeholder="decription"
+                placeholder="description"
                 value={inputrequestDesc}
                 onChange={handleInputChangeDesc}
               />
@@ -134,7 +120,6 @@ Contract Balance
                 onChange={handleInputChangePayment}
               />Make Payment
       </div>
-      
       </div>
       <Footer/>
     </>
@@ -143,45 +128,3 @@ Contract Balance
 }
 
 export default Contract;
-
-
-
-// import { useRef, useEffect } from "react";
-
-// function Contract({ value }) {
-//   const spanEle = useRef(null);
-
-//   useEffect(() => {
-//     spanEle.current.classList.add("flash");
-//     const flash = setTimeout(() => {
-//       spanEle.current.classList.remove("flash");
-//     }, 300);
-//     return () => {
-//       clearTimeout(flash);
-//     };
-//   }, [value]);
-
-//   return (
-//     <code>
-//       {`contract SimpleStorage {
-//   uint256 value = `}
-
-//       <span className="secondary-color" ref={spanEle}>
-//         <strong>{value}</strong>
-//       </span>
-
-//       {`;
-
-//   function read() public view returns (uint256) {
-//     return value;
-//   }
-
-//   function write(uint256 newValue) public {
-//     value = newValue;
-//   }
-// }`}
-//     </code>
-//   );
-// }
-
-// export default Contract;

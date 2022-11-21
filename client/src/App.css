@@ -91,17 +91,17 @@ hr {
   font-size: 2.6rem;
 }
 
-#App .container .demo .contract-container {
+#App .container  .contract-container {
   display: flex;
   flex-direction: column;
 }
 
-#App .container .demo .contract-container code {
+#App .container  .contract-container code {
   min-width: 42rem;
   border-radius: 1rem 0 0 1rem;
 }
 
-#App .container .demo .contract-container .btns {
+#App .container  .contract-container .btns {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -112,7 +112,7 @@ hr {
   border-radius: 0 1rem 1rem 0;
 }
 
-#App .container .demo .contract-container .btns>* {
+#App .container  .contract-container .btns>* {
   width: 12rem;
   display: flex;
   align-items: center;
@@ -125,11 +125,11 @@ hr {
   cursor: pointer;
 }
 
-#App .container .demo .contract-container .btns>*:hover {
+#App .container  .contract-container .btns>*:hover {
   background-color: var(--dark-gray);
 }
 
-#App .container .demo .contract-container .btns .input-btn input {
+#App .container  .contract-container .btns .input-btn input {
   width: 4rem;
   text-align: center;
   font-family: monospace;
@@ -161,6 +161,12 @@ hr {
   color: white;
   font-size: 22px;
   padding-top: -100px;
+}
+#App .about button{
+  background-color: transparent;
+  text-decoration: none;
+  outline: none;
+  border: none; cursor: pointer;
 }
 #App .refbtn{
   height: 50%;
@@ -226,6 +232,17 @@ hr {
   font-size: 17px;
   cursor: pointer;
 }
+#App .home .home1 .donatebtn{
+  width: 20%;
+  text-align: center;
+ 
+  background-color: transparent;
+  text-decoration: none;
+  
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  cursor: pointer;
+}
 #App .home .input-btn{
   margin-top: 100px;
   cursor: pointer;
@@ -237,7 +254,7 @@ hr {
   font-size: 20px;
 }
 
-#App .demo .footer{
+#App  .footer{
   background-color: #49274A;
   display: flex;
   text-align: center;
@@ -245,7 +262,7 @@ hr {
   color: white;
   font-family: 'Poppins', sans-serif;
 }
-#App .demo .title{
+#App  .title{
   font-family: 'Poppins', sans-serif;
   padding-left: 10px;
 }

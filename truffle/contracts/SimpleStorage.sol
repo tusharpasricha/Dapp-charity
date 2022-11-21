@@ -20,27 +20,28 @@ contract charity{
     }
     mapping(uint=>Request) public requests;
     uint public numRequests;
-    constructor(uint _target,uint _deadline){
+    constructor(uint256 _target,uint _deadline){
         target=_target;
         deadline=block.timestamp+_deadline; //10sec + 3600sec (60*60)
         minimumContribution=100 wei;
         manager=msg.sender;
     }
     
-    function sendEth(uint val) public payable{
+    function sendEth() public payable{
         require(block.timestamp < deadline,"Deadline has passed");
-        require(val >=minimumContribution,"Minimum Contribution is not met");
+        require(msg.value >=minimumContribution,"Minimum Contribution is not met");
         
         if(contributors[msg.sender]==0){
             noOfContributors++;
         }
-        contributors[msg.sender]+=val;
-        raisedAmount+=val;
+        contributors[msg.sender]+=msg.value;
+        raisedAmount+=msg.value;
     }
     function getContractBalance() public view returns(uint){
         return address(this).balance;
     }
     function refund() public{
+        
         require(block.timestamp>deadline && raisedAmount<target,"You are not eligible for refund");
         require(contributors[msg.sender]>0);
         address payable user=payable(msg.sender);

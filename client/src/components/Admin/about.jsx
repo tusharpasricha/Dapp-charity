@@ -1,5 +1,6 @@
 import { useState , useEffect } from "react";
 import useEth from "../../contexts/EthContext/useEth";
+import { FaArrowAltCircleDown, FaArrowCircleDown, FaBeer, FaCloudMeatball, FaCloudUploadAlt, FaDownload, FaRegArrowAltCircleDown } from 'react-icons/fa';
 function About() {
     const { state: { contract, accounts } } = useEth();
 
@@ -9,6 +10,8 @@ function About() {
     const [target,settarget]=useState("0")
     const [noofcontributer,setnoofcontributer]=useState("0")
     const [request,setrequest]=useState("")
+    const [balance,setbalance]=useState("0")
+
 
 
   useEffect(() => {fdeadline()}, []);
@@ -17,7 +20,14 @@ function About() {
   useEffect(() => {fraisedAmount()}, []);
   useEffect(() => {ftarget()}, []);
   useEffect(() => {frequest()}, []);
- 
+  useEffect(() => {getContractBalance()}, []);
+
+  const getContractBalance = async () => {
+    console.log(contract.methods)
+    const value = await contract.methods.getContractBalance().call({ from: accounts[0] });
+    setbalance(value);
+    console.log(value)
+  };
 
     const fminimumcontribution= async () => {
         const val = await contract.methods.minimumContribution().call({ from: accounts[0] });
@@ -58,6 +68,9 @@ function About() {
     <h5>Restoring trust in Charity!</h5>
     </div>
     <div className="item">
+    Balance : {balance}
+    </div>
+    <div className="item">
     Target : {target}
     </div>
     <div className="item">
@@ -84,7 +97,8 @@ function About() {
         fraisedAmount();
         fnoofcontributer();
         frequest();
-      }}> Refresh </button>
+        getContractBalance();
+      }}><FaArrowCircleDown size="20px"/> </button>
       </div>
   
   </div>
