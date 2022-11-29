@@ -3,7 +3,7 @@ import useEth from "../../contexts/EthContext/useEth";
 import About from "../Admin/about";
 import vector from "./vector.jpg";
 
-function ContractBtns() {
+function UserMain() {
   
   const { state: { contract, accounts } } = useEth();
   const [inputValuevote, setInputValuevote] = useState("");
@@ -94,4 +94,4 @@ function ContractBtns() {
   );
 }
 
-export default ContractBtns;
+export default UserMain;

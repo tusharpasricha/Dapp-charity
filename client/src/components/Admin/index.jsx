@@ -1,5 +1,5 @@
 import useEth from "../../contexts/EthContext/useEth";
-import Contract from "./Contract";
+import AdminMain from "./AdminMain";
 import NoticeNoArtifact from "../User/NoticeNoArtifact";
 import NoticeWrongNetwork from "../User/NoticeWrongNetwork";
 
@@ -9,7 +9,7 @@ function Admin() {
   const admin =
     <>
       <div className="contract-container">  
-        <Contract/>
+        <AdminMain/>
       </div>
     </>;
 

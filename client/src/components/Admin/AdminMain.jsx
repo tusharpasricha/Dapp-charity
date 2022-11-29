@@ -4,7 +4,7 @@ import { useState } from "react";
 import About from "./about";
 import Footer from "../User/footer";
 
-function Contract() {
+function AdminMain() {
   const spanEle = useRef(null);
   const { state: { contract, accounts } } = useEth();
   const [value, setValue] = useState("");
@@ -127,4 +127,4 @@ function Contract() {
   );
 }
 
-export default Contract;
+export default AdminMain;

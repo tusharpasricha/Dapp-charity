@@ -1,5 +1,5 @@
 import useEth from "../../contexts/EthContext/useEth";
-import ContractBtns from "./ContractBtns";
+import ContractBtns from "./UserMain";
 import NoticeNoArtifact from "./NoticeNoArtifact";
 import NoticeWrongNetwork from "./NoticeWrongNetwork";
 import Footer from "./footer";

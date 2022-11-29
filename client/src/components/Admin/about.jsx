@@ -1,23 +1,24 @@
 import { useState , useEffect } from "react";
 import useEth from "../../contexts/EthContext/useEth";
-import { FaArrowAltCircleDown, FaArrowCircleDown, FaBeer, FaCloudMeatball, FaCloudUploadAlt, FaDownload, FaRegArrowAltCircleDown } from 'react-icons/fa';
+import { FaArrowCircleDown} from 'react-icons/fa';
 function About() {
     const { state: { contract, accounts } } = useEth();
 
     const [minimumContribution,setminimumContribution]=useState("0")
-    const [raisedAmount,setraisedAmount]=useState("0")
+    const [collectedAmount,setcollectedAmount]=useState("0")
     const [deadline,setdeadline]=useState("0")
     const [target,settarget]=useState("0")
-    const [noofcontributer,setnoofcontributer]=useState("0")
+    const [noOfdonors,setnoOfdonors]=useState("0")
     const [request,setrequest]=useState("")
     const [balance,setbalance]=useState("0")
 
+    
 
 
   useEffect(() => {fdeadline()}, []);
   useEffect(() => {fminimumcontribution()}, []);
-  useEffect(() => {fnoofcontributer()}, []);
-  useEffect(() => {fraisedAmount()}, []);
+  useEffect(() => {fnoOfdonors()}, []);
+  useEffect(() => {fcollectedAmount()}, []);
   useEffect(() => {ftarget()}, []);
   useEffect(() => {frequest()}, []);
   useEffect(() => {getContractBalance()}, []);
@@ -34,9 +35,9 @@ function About() {
         setminimumContribution(val);
         console.log(val)
       };
-    const fraisedAmount = async () => {
-        const value = await contract.methods.raisedAmount().call({ from: accounts[0] });
-        setraisedAmount(value);
+    const fcollectedAmount = async () => {
+        const value = await contract.methods.collectedAmount().call({ from: accounts[0] });
+        setcollectedAmount(value);
      };
     const ftarget = async () => {
       const value = await contract.methods.target().call({ from: accounts[0] });
@@ -46,12 +47,10 @@ function About() {
       const value = await contract.methods.deadline().call({ from: accounts[0] });
       setdeadline(value);
     };
-    const fnoofcontributer = async () => {
-      const value = await contract.methods.noOfContributors().call({ from: accounts[0] });
-      setnoofcontributer(value);
+    const fnoOfdonors = async () => {
+      const value = await contract.methods.noOfdonors().call({ from: accounts[0] });
+      setnoOfdonors(value);
     };
-    
-    
     
     const frequest = async () => {
       const value = await contract.methods.numRequests().call({ from: accounts[0] });
@@ -59,7 +58,7 @@ function About() {
       console.log(value);
     };
     
-    
+  
     
 
     return   <div className="about">
@@ -68,19 +67,20 @@ function About() {
     <h5>Restoring trust in Charity!</h5>
     </div>
     <div className="item">
+      
     Balance : {balance}
     </div>
     <div className="item">
     Target : {target}
     </div>
     <div className="item">
-    Raised amount : {raisedAmount}
+    Raised amount : {collectedAmount}
     </div>
     <div className="item">
     Deadline : {deadline}
     </div>
     <div className="item">
-    No of contributers : {noofcontributer}
+    No of contributers : {noOfdonors}
     </div>
     <div className="item">
     Minimum Contribution : {minimumContribution}
@@ -94,8 +94,8 @@ function About() {
         ftarget();
         fdeadline();
         fminimumcontribution();
-        fraisedAmount();
-        fnoofcontributer();
+        fcollectedAmount();
+        fnoOfdonors();
         frequest();
         getContractBalance();
       }}><FaArrowCircleDown size="20px"/> </button>
